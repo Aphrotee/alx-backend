@@ -5,13 +5,13 @@ This module provides the function index_range
 """
 
 
-def index_range(page, page_size):
+def index_range(page: int, page_size: int) -> tuple:
     """
     Thsi function returns a tuple of size two containing a start
     index and an end index corresponding to the range of indexes
     to return in a list for those particular pagination parameters
     """
-    if not isinstance(int, page) or not isinstance(int, page_size):
+    if not isinstance(page, int) or not isinstance(page_size, int):
         return
     end = page * page_size
     start = end - page_size
