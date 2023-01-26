@@ -14,6 +14,7 @@ class LFUCache(BaseCaching):
     time = datetime.datetime
 
     def __init__(self):
+        """ Initialize instance """
         super().__init__()
         self.count_register = {}
         self.time_register = {}
