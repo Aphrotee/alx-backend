@@ -8,12 +8,13 @@ from flask import (
     Flask,
     render_template
 )
+from typing import Callable
 
 app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def indexHtml():
+def indexHtml() -> Callable:
     """ Creates html template """
     page_title = 'Welcome to Holberton'
     content = 'Hello world'
