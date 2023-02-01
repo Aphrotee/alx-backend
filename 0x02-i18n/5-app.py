@@ -46,7 +46,7 @@ def get_user():
     user = request.args.get('login_as')
     try:
         user = int(user)
-    except ValueError:
+    except Exception:
         pass
     if user is not None:
         return users.get(user, None)
