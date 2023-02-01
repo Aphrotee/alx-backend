@@ -1,4 +1,4 @@
-#!/usr/bin/env pythons
+#!/usr/bin/env python3
 
 """
 This module provides a flask app instance
@@ -19,6 +19,10 @@ class Config(object):
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
+
+
+app.config.from_object(Config)
+
 
 @app.route('/', strict_slashes=False)
 def indexHtml() -> str:
