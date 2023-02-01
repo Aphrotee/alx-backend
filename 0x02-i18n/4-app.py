@@ -36,8 +36,6 @@ def get_locale() -> str:
 @app.route('/', strict_slashes=False)
 def indexHtml() -> str:
     """ Creates html template """
-    page_title = 'Welcome to Holberton'
-    content = 'Hello world'
     return render_template('4-index.html')
 
 
