@@ -6,7 +6,6 @@ This module provides a flask app instance
 
 from flask import (
     Flask,
-    g,
     render_template,
     request
 )
@@ -40,9 +39,7 @@ def indexHtml() -> str:
     """ Creates html template """
     page_title = 'Welcome to Holberton'
     content = 'Hello world'
-    return render_template('4-index.html',
-                           home_title=page_title,
-                           home_header=content)
+    return render_template('4-index.html')
 
 
 if __name__ == '__main__':
