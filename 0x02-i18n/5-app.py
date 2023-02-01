@@ -44,6 +44,10 @@ def get_locale() -> str:
 def get_user():
     """ Gets the user to be logged in as """
     user = request.args.get('login_as')
+    try:
+        user = int(user)
+    except ValueError:
+        pass
     if user is not None:
         return users.get(user, None)
     return None
@@ -60,6 +64,7 @@ def indexHtml() -> str:
     """ Creates html template """
     user = g.user
     login_status = 'not_logged_in'
+    username = ''
     if user is not None:
         login_status = 'logged_in_as'
         username = user['name']
