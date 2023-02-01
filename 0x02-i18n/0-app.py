@@ -1,4 +1,4 @@
-#!/usr/bin/env pythons
+#!/usr/bin/env python3
 
 """
 This module provides a flask app instance

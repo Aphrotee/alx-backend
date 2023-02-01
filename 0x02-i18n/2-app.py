@@ -6,7 +6,8 @@ This module provides a flask app instance
 
 from flask import (
     Flask,
-    render_template
+    render_template,
+    request
 )
 from flask_babel import Babel
 
@@ -29,9 +30,15 @@ def indexHtml() -> str:
     """ Creates html template """
     page_title = 'Welcome to Holberton'
     content = 'Hello world'
-    return render_template('1-index.html',
-                           home_title=page_title,
-                           home_header=content)
+    return render_template('2-index.html',
+                           page_title=page_title,
+                           content=content)
+
+
+@babel.localselector
+def get_locale() -> str:
+    """ Gets the language to be used """
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == '__main__':
