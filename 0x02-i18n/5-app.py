@@ -55,6 +55,7 @@ def get_user():
 
 @app.before_request
 def before_request():
+    """ Sets the global user as the logged in user """
     user = get_user()
     g.user = user
 
