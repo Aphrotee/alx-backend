@@ -5,11 +5,12 @@ This module provides a flask app instance
 """
 
 from flask import (
+    flash,
     Flask,
     render_template,
     request
 )
-from flask_babel import Babel
+from flask_babel import Babel, gettext
 
 
 class Config:
