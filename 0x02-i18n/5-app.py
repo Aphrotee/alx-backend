@@ -5,7 +5,6 @@ This module provides a flask app instance
 """
 
 from flask import (
-    flash,
     Flask,
     g,
     render_template,
