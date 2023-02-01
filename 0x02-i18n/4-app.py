@@ -28,6 +28,9 @@ babel = Babel(app)
 @babel.localeselector
 def get_locale() -> str:
     """ Gets the language to be used """
+    locale = request.args.get('locale')
+    if locale in app.config.LANGUAGES:
+        return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
@@ -36,9 +39,6 @@ def indexHtml() -> str:
     """ Creates html template """
     page_title = 'Welcome to Holberton'
     content = 'Hello world'
-    locale = request.args.get('locale')
-    if locale in Config.LANGUAGES:
-        g.locale = locale
     return render_template('4-index.html',
                            home_title=page_title,
                            home_header=content)
