@@ -52,14 +52,20 @@ def get_user():
 @app.before_request
 def before_request():
     user = get_user()
-    if user is not None:
-        g.user = user
+    g.user = user
 
 
 @app.route('/', strict_slashes=False)
 def indexHtml() -> str:
     """ Creates html template """
-    return render_template('5-index.html')
+    user = g.user
+    login_status = 'not_logged_in'
+    if user is not None:
+        login_status = 'logged_in_as'
+        username = user['name']
+    return render_template('5-index.html',
+                           login_status=login_status,
+                           username=username)
 
 
 if __name__ == '__main__':
