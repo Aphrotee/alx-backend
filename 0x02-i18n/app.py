@@ -4,13 +4,14 @@
 This module provides a flask app instance
 """
 
+from datetime import datetime
 from flask import (
     Flask,
     g,
     render_template,
     request
 )
-from flask_babel import Babel, gettext
+from flask_babel import Babel, format_datetime
 from pytz import (
     timezone,
     exceptions
@@ -66,6 +67,7 @@ def get_user() -> str:
 def get_timezone() -> str:
     """ Get the timezone to be used """
     tz = request.args.get('timezone')
+    print(format_datetime)
     if tz is None:
         try:
             tz = timezone(tz)

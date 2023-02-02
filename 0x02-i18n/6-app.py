@@ -46,7 +46,7 @@ def get_locale() -> str:
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-def get_user():
+def get_user() -> str:
     """ Gets the user to be logged in as """
     user = request.args.get('login_as')
     try:
@@ -59,7 +59,7 @@ def get_user():
 
 
 @app.before_request
-def before_request():
+def before_request() -> None:
     """ Sets the global user as the logged in user """
     user = get_user()
     g.user = user
