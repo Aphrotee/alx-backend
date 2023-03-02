@@ -1,4 +1,5 @@
 const kue = require('kue');
+
 const queue = kue.createQueue();
 const blacklist = ['4153518780', '4153518781'];
 

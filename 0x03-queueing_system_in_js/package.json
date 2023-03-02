@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint",
-    "check-lint": "lint [0-9]*.js",
+    "lint": "eslint --fix",
+    "check-lint": "npm run lint [0-9]*.js",
     "test": "mocha --require @babel/register --exit",
     "dev": "nodemon --exec babel-node --presets @babel/preset-env"
   },
